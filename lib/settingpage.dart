@@ -16,5 +16,22 @@ class SettingsOnePage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text('Settings', style: TextStyle(color: Colors.black),),
       ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+        
+            ),
+
+          ),
+        ], 
+      ),
+    );
+
+  
 
 }
