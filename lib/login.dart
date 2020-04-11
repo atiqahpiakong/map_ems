@@ -16,6 +16,8 @@ class FormScreenState extends State<FormScreen> {
 
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+bool _rememberMe = false;
+
 Widget _buildEmailTF(){
   return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,6 +111,33 @@ Widget _buildForgotPasswordBtn(){
                 
 }
 
+Widget _buildRememberMeCheckbox() {
+    return Container(
+      height: 20.0,
+                  child: Row(
+                    children: <Widget>[
+                      Theme(
+                        data: ThemeData(unselectedWidgetColor: Colors.white),
+                        child: Checkbox(
+                          value: _rememberMe,
+                          checkColor: Colors.green,
+                          activeColor: Colors.white,
+                          onChanged: (value) {
+                            setState((){
+                              _rememberMe=value;
+                            });
+                          },
+                        ),
+                        ),
+                        Text(
+                          'Remember me',
+                          style: TextStyle(color: Colors.white),
+                          )
+
+                    ],
+                  ) ,);
+}
+
 Widget build(BuildContext context){
     
     return Form(
@@ -163,7 +192,8 @@ Container(
               _buildEmailTF(),
               _buildPasswordTF(),
               _buildForgotPasswordBtn(),
-
+              _buildRememberMeCheckbox()
+            
               
 
               
