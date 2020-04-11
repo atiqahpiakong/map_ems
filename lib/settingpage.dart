@@ -2,9 +2,18 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsOnePage extends StatelessWidget {
-  //static final String path = lib\main.dart;
+class SettingsOnePage extends StatefulWidget {
+  //static final String path = *lib\main.dart*;
 
+  @override
+  _SettingsOnePageState createState() => _SettingsOnePageState();
+}
+
+class _SettingsOnePageState extends State<SettingsOnePage> {
+  final globalKey = GlobalKey<ScaffoldState>();
+
+  bool switch1 = false;
+  bool switch2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
