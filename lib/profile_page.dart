@@ -242,7 +242,27 @@ class _ProfilePageState extends State<ProfilePage> {
 
         },),],
       ),
+
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              color: Color(0xffECECEC),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
+            _greenColors(),
+            _userPhone(),
+            _userEmail(),
+            _userAddress()
+
+          ],
+        ),
+
       
+
+
+      ),
     );
   }
 }
