@@ -16,7 +16,41 @@ class FormScreenState extends State<FormScreen> {
 
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-
+Widget _buildEmailTF(){
+  return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Email',
+                      style: TextStyle(
+                        color: Colors.white, 
+                        fontFamily: 'OpenSans',
+                      )
+                    
+                    ),
+                    SizedBox(height: 10.0),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration( color: Colors.transparent),
+                      height: 60.0,
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsetsDirectional.only(top: 14.0),
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Colors.white,
+                          ),
+                          hintText: 'Enter your Email',
+                          hintStyle: TextStyle(color: Colors.white)
+                        ),
+                      ),
+                    ),
+                  ],
+                  );
+}
 
 
 
@@ -73,39 +107,8 @@ Container(
                     ),
                     ),
               SizedBox(height: 30.0),
-              Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Email',
-                      style: TextStyle(
-                        color: Colors.white, 
-                        fontFamily: 'OpenSans',
-                      )
-                    
-                    ),
-                    SizedBox(height: 10.0),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration( color: Colors.transparent),
-                      height: 60.0,
-                      child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsetsDirectional.only(top: 14.0),
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: Colors.white,
-                          ),
-                          hintText: 'Enter your Email',
-                          hintStyle: TextStyle(color: Colors.white)
-                        ),
-                      ),
-                    ),
-                  ],
-                  ),
+              _buildEmailTF(),
+              
               ],
               ),
               ),
