@@ -44,4 +44,40 @@ class _ProfilePageState extends State<EditProfile> {
     );
   }
 
+  Widget _name() {
+    return new Container (
+                width: MediaQuery.of(context).size.width * 0.88,
+                margin: EdgeInsets.all(22),
+                child: new Container(
+                  
+                  child: new Center(
+                    child: new Column(
+                     children : [
+                       new Padding(padding: EdgeInsets.only(top: 113.0)),
+                       
+                       new Padding(padding: EdgeInsets.only(top: 10.0)),
+                       new TextFormField(
+                         
+                      decoration: new InputDecoration(
+                        //labelText: " Enter Email",
+                        hintText: "\t\tSiti Nabilah ",
+                        fillColor: Color(0xffECECEC),
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                        borderSide: BorderSide(color: Color(0xffECECEC))),
+            
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      style: new TextStyle(
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                     ]
+                    )
+                 ),
+            )
+            );
+  }
+
 }
