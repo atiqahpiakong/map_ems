@@ -73,6 +73,17 @@ class SettingsOnePage extends StatelessWidget {
                         }),
 
                         _buildDivider(),
+                        ListTile(
+                        leading: Icon(
+                          FontAwesomeIcons.language,
+                          color: Colors.blue[800],
+                        ),
+                        title: Text("Change Language"),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        onTap: () {
+                          //open change language
+                        }),
+                        _buildDivider(),
                     
                    
                   ]),
