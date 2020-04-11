@@ -209,4 +209,40 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        
+        brightness: Brightness.light,
+        
+        title: Text(
+          "EMS",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        
+        elevation: 0,
+        backgroundColor: Color(0xff022264),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.arrow_back_ios,
+        //     color: Colors.white,
+        //   ),
+        //   onPressed: () {},
+        // ),
+        actions: <Widget>[
+          
+          IconButton(icon: Icon(Icons.edit, color: Colors.white),onPressed: (){
+          Navigator.of(context)
+                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              return new EditProfile();
+            }));
+
+        },),],
+      ),
+      
+    );
+  }
 }
