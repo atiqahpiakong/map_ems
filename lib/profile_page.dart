@@ -162,4 +162,51 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+   Widget _userAddress() {
+    return Positioned(
+      top: 335,
+      child: Container(
+        margin: EdgeInsets.all(18),
+        
+        width: MediaQuery.of(context).size.width * 0.90,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        
+        child: Container(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                
+              Icon(
+                  Icons.location_on,
+                  color: Colors.black,
+                ),
+         
+        
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Flexible(
+                    child:Text(
+                  "No. 20 Taman Sri Pinang, Parit Mesjid, Pontian Johor ", 
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                    
+                    
+                  ),)
+                ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
 }
