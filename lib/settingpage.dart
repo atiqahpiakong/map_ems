@@ -2,10 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 class SettingsOnePage extends StatelessWidget {
   //static final String path = lib\main.dart;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +14,10 @@ class SettingsOnePage extends StatelessWidget {
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: Text('Settings', style: TextStyle(color: Colors.black),),
+        title: Text(
+          'Settings',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -26,18 +28,18 @@ class SettingsOnePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Card(
-                    elevation: 8.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0)),
-                    //margin: const EdgeInsets.all(32.0),
-                    color: Colors.blue[800],
+                  elevation: 8.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  //margin: const EdgeInsets.all(32.0),
+                  color: Colors.blue[800],
 
-                child: ListTile(
+                  child: ListTile(
                       onTap: () {
                         //open edit profile
                       },
                       title: Text(
-                        "John Doe",
+                        "Atiqah Piakong",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -45,22 +47,17 @@ class SettingsOnePage extends StatelessWidget {
                       ),
                       leading: CircleAvatar(
                         backgroundColor: Colors.orange.shade800,
-                        child: Text('AH'),
-                  )
-
-                      ),
-                      //trailing: Icon(Icons.edit, color: Colors.white,),
-                    
-        
-            ),
-
+                        child: Text('AP'),
+                      )),
+                  //trailing: Icon(Icons.edit, color: Colors.white,),
+                ),
                 const SizedBox(height: 10.0),
                 Card(
                   elevation: 6.0,
                   margin: const EdgeInsets.fromLTRB(32.0, 8.0, 32.0, 16.0),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0)),
-                    child: Column(children: <Widget>[
+                  child: Column(children: <Widget>[
                     ListTile(
                         leading: Icon(
                           Icons.lock_outline,
@@ -71,9 +68,8 @@ class SettingsOnePage extends StatelessWidget {
                         onTap: () {
                           //change password
                         }),
-
-                        _buildDivider(),
-                        ListTile(
+                    _buildDivider(),
+                    ListTile(
                         leading: Icon(
                           FontAwesomeIcons.language,
                           color: Colors.blue[800],
@@ -83,9 +79,8 @@ class SettingsOnePage extends StatelessWidget {
                         onTap: () {
                           //open change language
                         }),
-                        _buildDivider(),
-
-                        ListTile(
+                    _buildDivider(),
+                    ListTile(
                         leading: Icon(
                           Icons.help,
                           color: Colors.blue[800],
@@ -95,8 +90,6 @@ class SettingsOnePage extends StatelessWidget {
                         onTap: () {
                           //open help
                         })
-                    
-                   
                   ]),
                 ),
                 const SizedBox(height: 30.0),
@@ -106,7 +99,6 @@ class SettingsOnePage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Colors.indigo,
                     )),
-
                 SwitchListTile(
                     //dense: true,
                     activeColor: Colors.blue[800],
@@ -118,7 +110,6 @@ class SettingsOnePage extends StatelessWidget {
                     onChanged: (val1) {
                       //action
                     }),
-
                 SwitchListTile(
                     //dense: true,
                     activeColor: Colors.blue[800],
@@ -126,7 +117,7 @@ class SettingsOnePage extends StatelessWidget {
                     value: false,
                     title: Text("Receive Email Notifications"),
                     onChanged: (val2) {
-                     //action
+                      //action
                     }),
                 SwitchListTile(
                     //dense: true,
@@ -136,19 +127,15 @@ class SettingsOnePage extends StatelessWidget {
                     title: Text("Received App Updates"),
                     onChanged: null),
                 const SizedBox(height: 60.0),
-
               ],
-          ),
+            ),
           )
         ],
       ),
-    
     );
+  }
 
-  
-
-}
-Container _buildDivider() {
+  Container _buildDivider() {
     return Container(
       margin: const EdgeInsets.symmetric(
         horizontal: 8.0,
@@ -158,5 +145,4 @@ Container _buildDivider() {
       color: Colors.grey.shade600,
     );
   }
-
 }
