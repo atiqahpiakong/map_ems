@@ -7,7 +7,13 @@ class Notification1 extends StatelessWidget {
     
     return Scaffold(
  backgroundColor: Color(0xffECECEC),
-        appBar: AppBar()
+        appBar: AppBar(),
 
+        //body for notification
+ body: ListView(
+          children: <Widget>[
+    
+          ],
+        ),
 
     );}}
