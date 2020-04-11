@@ -116,4 +116,50 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+   Widget _userEmail() {
+    return Positioned(
+      top: 270,
+      child: Container(
+        margin: EdgeInsets.all(18),
+        
+        width: MediaQuery.of(context).size.width * 0.90,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        
+        child: Container(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                
+              Icon(
+                  Icons.email,
+                  color: Colors.black,
+                ),
+         
+        
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                  "atiqahpkg@gmail.com ", 
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                    
+                    
+                  ),
+                ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
 }
