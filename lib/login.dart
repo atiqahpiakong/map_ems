@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -152,10 +152,11 @@ class FormScreenState extends State<FormScreen> {
             elevation: 5.0,
             onPressed: () async {
               if (_formKey.currentState.validate()) {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) {}));
-              }
-            },
+                Navigator.push(context,
+                    MaterialPageRoute(builder:( context){
+                      return new BottomNavBar();
+                    }));
+                  }},
             padding: EdgeInsets.all(15.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
