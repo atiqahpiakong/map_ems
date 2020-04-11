@@ -23,15 +23,39 @@ class SettingsOnePage extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Card(
+                    elevation: 8.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    //margin: const EdgeInsets.all(32.0),
+                    color: Colors.blue[800],
 
+                child: ListTile(
+                      onTap: () {
+                        //open edit profile
+                      },
+                      title: Text(
+                        "John Doe",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+
+                      ),
+                      //trailing: Icon(Icons.edit, color: Colors.white,),
+                    
         
             ),
-
+              ],
           ),
-        ], 
+          )
+        ],
       ),
     );
 
   
 
+}
 }
