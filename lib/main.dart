@@ -105,6 +105,12 @@ class _MyHomePageState extends State<MyHomePage>
                   color: background
                   .evaluate(AlwaysStoppedAnimation(_controller.value)),
                  ),
+                 Column(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                   children: <Widget>[
+                     
+                   ],
+                 )
               ],
             )
 
