@@ -54,6 +54,14 @@ class _MyHomePageState extends State<MyHomePage>
 
   }
 
+   void _navigateToHome(){
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (BuildContext context) => FormScreen()
+      )
+    );
+  }
+
   Future<bool> _mockCheckForSession() async {
     await Future.delayed(Duration(seconds: 5), () {});
 
