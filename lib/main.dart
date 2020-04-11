@@ -29,19 +29,37 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin{
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+     @override
+    void initState(){
+    super.initState();
+
+    _mockCheckForSession().then(
+        (status) {
+          if (status) {
+            _navigateToHome();
+          } else {
+            
+          }
+        }
+    );
+
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    )..repeat();
+
   }
+
+  Future<bool> _mockCheckForSession() async {
+    await Future.delayed(Duration(seconds: 5), () {});
+
+    return true;
+  }
+  
 
   @override
   Widget build(BuildContext context) {
