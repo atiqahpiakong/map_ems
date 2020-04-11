@@ -3,6 +3,21 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+class EmailValidator{
+  static String validate(String value){
+    if (value.isEmpty){
+      return "Please Enter Email";
+    }
+      Pattern pattern = 
+      'atiqahpkg@gmail.com';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value)){
+      return 'Wrong Email';
+  }
+      return null;
+  }
+}
+
 
 class FormScreen extends StatefulWidget {
   // This widget is the root of your application.
@@ -36,6 +51,7 @@ Widget _buildEmailTF(){
                       decoration: BoxDecoration( color: Colors.transparent),
                       height: 60.0,
                       child: TextFormField(
+                        validator: EmailValidator.validate,
                         keyboardType: TextInputType.emailAddress,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
