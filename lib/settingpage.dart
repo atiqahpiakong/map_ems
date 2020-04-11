@@ -99,6 +99,13 @@ class SettingsOnePage extends StatelessWidget {
                    
                   ]),
                 ),
+                const SizedBox(height: 30.0),
+                Text('NOTIFICATION SETTING',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo,
+                    )),
 
 
               ],
