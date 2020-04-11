@@ -18,6 +18,19 @@ class EmailValidator{
   }
 }
 
+class PasswordValidator{
+  static String validate(String value){
+    if (value.isEmpty){
+      return "Please Enter Password";
+    }
+    if (value != '123456'){
+      return "Wrong Password";
+    }
+    return null;
+  }
+}
+
+
 
 class FormScreen extends StatefulWidget {
   // This widget is the root of your application.
@@ -87,6 +100,7 @@ Widget _buildPasswordTF(){
                       decoration: BoxDecoration( color: Colors.transparent),
                       height: 60.0,
                       child: TextFormField(
+                        validator: PasswordValidator.validate,
                         obscureText: true,
                         style: TextStyle(
                           color: Colors.white, fontFamily: 'OpenSans'),
