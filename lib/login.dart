@@ -138,6 +138,35 @@ Widget _buildRememberMeCheckbox() {
                   ) ,);
 }
 
+
+Widget _buildLoginBtn(){
+  return Container(padding: EdgeInsets.symmetric(vertical: 25.0),
+                width: double.infinity,
+                child: RaisedButton(
+                  elevation: 5.0,
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()){
+                    Navigator.push(context,
+                    MaterialPageRoute(builder:( context){
+                    }));
+                  }},
+
+                  padding: EdgeInsets.all(15.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  color: Colors.white,
+                  child: Text('LOGIN',
+                  style: TextStyle(color: Color(0xFF527DAA),
+                  letterSpacing: 4.0,
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'OpenSans',))
+        
+                )
+                );
+}
+ 
 Widget build(BuildContext context){
     
     return Form(
@@ -192,7 +221,8 @@ Container(
               _buildEmailTF(),
               _buildPasswordTF(),
               _buildForgotPasswordBtn(),
-              _buildRememberMeCheckbox()
+              _buildRememberMeCheckbox(),
+              _buildLoginBtn(),
             
               
 
