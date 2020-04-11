@@ -70,6 +70,8 @@ class SettingsOnePage extends StatelessWidget {
                         onTap: () {
                           //change password
                         }),
+
+                        _buildDivider(),
                     
                    
                   ]),
@@ -87,4 +89,15 @@ class SettingsOnePage extends StatelessWidget {
   
 
 }
+Container _buildDivider() {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8.0,
+      ),
+      width: double.infinity,
+      height: 1.0,
+      color: Colors.grey.shade600,
+    );
+  }
+
 }
