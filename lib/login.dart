@@ -51,11 +51,36 @@ Widget build(BuildContext context){
                 ), 
               ),
             ),
+
+Container(
+              height: double.infinity,
+              child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 40.0,
+                  vertical: 120.0,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Sign In',
+                    style: TextStyle
+                    (color: Colors.white, 
+                    fontFamily: 'OpenSans', 
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    ),
+                    ),
+
           ]
             ),
         ),
       ),
-      )
-    );
+          ]
+      ),
+
+    ))
+      ));
 }
 }
