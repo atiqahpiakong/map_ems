@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-//import 'profile_page.dart';
-//import 'menu.dart';
+import 'profile_page.dart';
+import 'menu.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -14,8 +14,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
    int i = 0;
   var pages = [
     new HomeScreen(),
-   // new HomeScreen2(),
-   // new ProfilePage(),
+    new HomeScreen2(),
+    new ProfilePage(),
   ];
 
    @override
