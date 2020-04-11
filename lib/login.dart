@@ -52,7 +52,7 @@ Widget _buildEmailTF(){
                   );
 }
 
- _buildPasswordTF(){
+Widget _buildPasswordTF(){
    
    return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,21 @@ Widget _buildEmailTF(){
 
 
 
-
+Widget _buildForgotPasswordBtn(){
+  return Container(
+                  alignment: Alignment.centerRight,
+                  child: FlatButton(
+                    onPressed: () => print('Forgot Password Button Pressed'),
+                    padding: EdgeInsets.only(right: 0.0),
+                    child: Text('Forget Password?', style: TextStyle(color: Colors.white),
+                    
+                  ),
+                  
+                ) 
+                );
+            
+                
+}
 
 Widget build(BuildContext context){
     
@@ -148,18 +162,9 @@ Container(
               SizedBox(height: 30.0),
               _buildEmailTF(),
               _buildPasswordTF(),
+              _buildForgotPasswordBtn(),
 
-              Container(
-                  alignment: Alignment.centerRight,
-                  child: FlatButton(
-                    onPressed: () => print('Forgot Password Button Pressed'),
-                    padding: EdgeInsets.only(right: 0.0),
-                    child: Text('Forget Password?', style: TextStyle(color: Colors.white),
-                    
-                  ),
-                  
-                ) 
-                )
+              
 
               
               ],
