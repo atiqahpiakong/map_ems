@@ -42,17 +42,46 @@ class SettingsOnePage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.orange.shade800,
+                        child: Text('AH'),
+                  )
 
                       ),
                       //trailing: Icon(Icons.edit, color: Colors.white,),
                     
         
             ),
+
+                const SizedBox(height: 10.0),
+                Card(
+                  elevation: 6.0,
+                  margin: const EdgeInsets.fromLTRB(32.0, 8.0, 32.0, 16.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                    child: Column(children: <Widget>[
+                    ListTile(
+                        leading: Icon(
+                          Icons.lock_outline,
+                          color: Colors.blue[800],
+                        ),
+                        title: Text("Change Password"),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        onTap: () {
+                          //change password
+                        }),
+                    
+                   
+                  ]),
+                ),
+
+
               ],
           ),
           )
         ],
       ),
+    
     );
 
   
