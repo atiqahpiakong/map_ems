@@ -71,7 +71,26 @@ class _HomeScreenState extends State<HomeScreen2> {
         
         
       ),
-
+         body: Center(
+          
+          child: Card(
+            color: Color(0xffECECEC),
+            elevation: 10.0,
+            child: Container(
+              color: Color(0xffECECEC),
+                height: 100.0,
+                width: 100.0,
+                alignment: Alignment.center,
+                child: Text(
+                  'EMS MENU',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0
+                  ),
+                )
+            ),
+          ),
+        )
     );
   }
 }
