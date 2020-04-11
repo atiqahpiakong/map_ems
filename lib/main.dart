@@ -67,6 +67,29 @@ class _MyHomePageState extends State<MyHomePage>
 
     return true;
   }
+
+  AnimationController _controller;
+
+  
+
+  Animatable<Color> background = TweenSequence<Color>([
+    TweenSequenceItem(
+      weight: 1.0,
+      tween: ColorTween(
+        begin: Color(0xff000c18),
+        end: Color(0xff00162b),
+        
+      ),
+    ),
+    TweenSequenceItem(
+      weight: 1.0,
+      tween: ColorTween(
+        begin: Color(0xff00162b),
+        end: Color(0xff000c18),
+      ),
+    ),
+    
+  ]);
   
 
   @override
