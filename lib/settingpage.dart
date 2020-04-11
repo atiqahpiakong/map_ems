@@ -144,6 +144,27 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                     value: false,
                     title: Text("Receive Email Notifications"),
                     onChanged: (val2) {
+                      setState(() {
+                        switch2 = val2;
+                        if (val2 == true) {
+                          print(switch2);
+                          final snackBar = SnackBar(
+                              content:
+                                  Text('Receive Email Notifications Enabled'),
+                            duration: Duration(seconds: 2));
+
+
+                          globalKey.currentState.showSnackBar(snackBar);
+                        } else {
+                          final snackBar = SnackBar(
+                              content:
+                                  Text('Receive Email Notifications Disabled'),
+                         duration: Duration(seconds: 2));
+
+                          globalKey.currentState.showSnackBar(snackBar);
+                        }
+                        //print(bal);
+                      });
                       //action
                     }),
                 SwitchListTile(
