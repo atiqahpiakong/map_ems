@@ -128,7 +128,14 @@ class SettingsOnePage extends StatelessWidget {
                     onChanged: (val2) {
                      //action
                     }),
-
+                SwitchListTile(
+                    //dense: true,
+                    activeColor: Colors.blue[800],
+                    contentPadding: const EdgeInsets.all(0),
+                    value: true,
+                    title: Text("Received App Updates"),
+                    onChanged: null),
+                const SizedBox(height: 60.0),
 
               ],
           ),
