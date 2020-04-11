@@ -108,7 +108,50 @@ class _MyHomePageState extends State<MyHomePage>
                  Column(
                    mainAxisAlignment: MainAxisAlignment.start,
                    children: <Widget>[
-                     
+                     Expanded(
+                       flex: 2,
+                       child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.only(top: 150.0),
+                            ),
+                      
+                            Image.asset('assets/img/logo.png', height:150, width:300),
+                              Padding(
+                                padding: EdgeInsets.only(top: 0.0),
+                              ),
+                              Shimmer.fromColors(
+                              period: Duration(milliseconds: 1500),
+                              baseColor: Color(0xff696969),
+                              highlightColor: Color(0xffe2e2e3),
+                              child: Container(
+                              child: Center(
+                                child:Text(
+                                "EMPLOYEE MANAGEMENT \n SYSTEM", textAlign: TextAlign.center,
+                                
+                                style: TextStyle(
+                                  fontSize: 25.0,
+                                  fontFamily: 'Pacifico',
+                                  shadows: <Shadow>[
+                                    
+                                  ]
+                                ),
+                              ),),
+                            ),
+                          )
+                                  ],
+                       ),
+                     ),
+                     Expanded(
+                      flex: 1,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset('assets/img/a.gif', height:60, width:200),
+                  ],
+                ),
+              )
                    ],
                  )
               ],
