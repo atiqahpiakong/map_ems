@@ -236,6 +236,29 @@ class _ProfilePageState extends State<EditProfile> {
         
         //actions: <Widget>[IconButton(icon: Icon(Icons.edit, color: Colors.white),onPressed: (){},),],
       ),
+
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              color: Colors.white,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+            ),
+            _greenColors(),
+            _name(),
+            _contact(),
+            _email(),
+            _address(),
+            
+
+          ],
+        ),
+
+      
+
+
+      ),
     );
   }
 }
