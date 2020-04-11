@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:map/notification.dart';
+import 'notification.dart';
 
 class HomeScreen2 extends StatefulWidget {
   
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen2> {
             children: <Widget>[
               new IconButton(icon: Icon(Icons.notifications
               ), onPressed: () {
-                Navigator.push(
+               Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Notification1()),);
                 setState(() {
