@@ -107,6 +107,28 @@ class SettingsOnePage extends StatelessWidget {
                       color: Colors.indigo,
                     )),
 
+                SwitchListTile(
+                    //dense: true,
+                    activeColor: Colors.blue[800],
+                    contentPadding: const EdgeInsets.all(0),
+                    value: false,
+                    title: Text(
+                      "Receive Notification",
+                    ),
+                    onChanged: (val1) {
+                      //action
+                    }),
+
+                SwitchListTile(
+                    //dense: true,
+                    activeColor: Colors.blue[800],
+                    contentPadding: const EdgeInsets.all(0),
+                    value: false,
+                    title: Text("Receive Email Notifications"),
+                    onChanged: (val2) {
+                     //action
+                    }),
+
 
               ],
           ),
