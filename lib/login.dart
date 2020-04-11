@@ -52,6 +52,45 @@ Widget _buildEmailTF(){
                   );
 }
 
+ _buildPasswordTF(){
+   
+   return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Password',
+                      style: TextStyle(
+                        color: Colors.white
+                      )
+                    ),
+                    SizedBox(height: 10.0),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration( color: Colors.transparent),
+                      height: 60.0,
+                      child: TextFormField(
+                        obscureText: true,
+                        style: TextStyle(
+                          color: Colors.white, fontFamily: 'OpenSans'),
+                        decoration: InputDecoration( 
+                    
+      
+                          border: OutlineInputBorder(),
+
+                          contentPadding: EdgeInsetsDirectional.only(top: 14.0),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.white,
+                          ),
+                          hintText: 'Enter your Password',
+                          hintStyle: TextStyle(color: Colors.white)
+                        ),
+                      ),
+                    ),
+                  ],
+                  );
+ }
+
 
 
 
@@ -108,6 +147,8 @@ Container(
                     ),
               SizedBox(height: 30.0),
               _buildEmailTF(),
+              _buildPasswordTF(),
+
               
               ],
               ),
