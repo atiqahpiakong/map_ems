@@ -100,6 +100,12 @@ class _MyHomePageState extends State<MyHomePage>
           return Scaffold(
             body: Stack(
               fit: StackFit.expand,
+              children: <Widget>[
+                Container(
+                  color: background
+                  .evaluate(AlwaysStoppedAnimation(_controller.value)),
+                 ),
+              ],
             )
 
           );
