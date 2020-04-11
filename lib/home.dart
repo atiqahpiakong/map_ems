@@ -137,5 +137,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
     );
+  
+  }
+    void choiceAction(String choice){
+    //print('WORKING');
+    if(choice == Constants.Settings){
+      //print('Settings');
+      //SettingsOnePage();
+
+      Navigator.of(context)
+                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              //return new SettingsOnePage();
+            }));
+    }
+
+    else if(choice == Constants.Signout){
+       Navigator.of(context)
+                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              return new FormScreen();
+            }));
+    }
+
+
   }
 }
