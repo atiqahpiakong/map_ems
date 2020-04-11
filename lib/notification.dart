@@ -12,6 +12,19 @@ class Notification1 extends StatelessWidget {
         //body for notification
  body: ListView(
           children: <Widget>[
+            ListTile(
+              title: Text(
+                'Leave Application Status',
+              ),
+              subtitle: Text('Leave ID: #123 | Status: Approved'),
+              onTap: () {
+                Text('Another data');
+              },
+            ),
+            new Divider(
+              height: 1.0,
+              indent: 1.0,
+            ),
     
           ],
         ),
