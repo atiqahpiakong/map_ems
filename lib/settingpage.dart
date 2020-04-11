@@ -84,6 +84,17 @@ class SettingsOnePage extends StatelessWidget {
                           //open change language
                         }),
                         _buildDivider(),
+
+                        ListTile(
+                        leading: Icon(
+                          Icons.help,
+                          color: Colors.blue[800],
+                        ),
+                        title: Text("Help"),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        onTap: () {
+                          //open help
+                        })
                     
                    
                   ]),
