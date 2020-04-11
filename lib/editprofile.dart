@@ -216,5 +216,26 @@ class _ProfilePageState extends State<EditProfile> {
             );
   }
 
- 
+  final globalKey = GlobalKey<ScaffoldState>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: globalKey,
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Color(0xff022264),
+        
+        title: Text(
+          "UPDATE PROFILE",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        
+        centerTitle: true,
+        
+        //actions: <Widget>[IconButton(icon: Icon(Icons.edit, color: Colors.white),onPressed: (){},),],
+      ),
+    );
+  }
 }
