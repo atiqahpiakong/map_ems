@@ -17,6 +17,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: globalKey,
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         elevation: 0,
@@ -117,6 +118,23 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                       "Receive Notification",
                     ),
                     onChanged: (val1) {
+                      setState(() {
+                        switch1 = val1;
+                        if (val1 == true) {
+                          print(switch1);
+                          final snackBar = SnackBar(
+                              content: Text('Receive Notifications Enabled'),
+                               duration: Duration(seconds: 2));
+                          globalKey.currentState.showSnackBar(snackBar);
+                        } else {
+                          final snackBar = SnackBar(
+                              content: Text('Receive Notifications Disabled'),
+                              duration: Duration(seconds: 2));
+                          globalKey.currentState.showSnackBar(snackBar);
+
+                        }
+                        //print(bal);
+                      });
                       //action
                     }),
                 SwitchListTile(
