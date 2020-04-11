@@ -151,4 +151,70 @@ class _ProfilePageState extends State<EditProfile> {
             )
             );
   }
+
+  Widget _address() {
+      return new Container (
+                width: MediaQuery.of(context).size.width * 0.88,
+                
+                margin: EdgeInsets.all(22),
+                child: new Container(
+                  
+                  child: new Center(
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children : [
+                       new Padding(padding: EdgeInsets.only(top: 314.0)),
+                       
+                       new Padding(padding: EdgeInsets.only(top: 10.0)),
+                       new TextFormField(
+                         
+                      decoration: new InputDecoration(
+                        //labelText: " Enter Email",
+                        hintText: "\t\tNo.20 Taman Sri Pinang, Parit Mesjid Pontian Johor",
+                        fillColor: Color(0xffECECEC),
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                        borderSide: BorderSide(color: Color(0xffECECEC))),
+            
+                      ),
+                      
+                      keyboardType: TextInputType.emailAddress,
+                      style: new TextStyle(
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+
+                     SizedBox(
+                        height: 15,
+                    ),
+
+                    new RaisedButton(
+                    onPressed: () {
+                           final snackBar = SnackBar(
+                              content: Text('Profile has been updated'),
+                              duration: Duration(seconds: 2));
+                          globalKey.currentState.showSnackBar(snackBar);
+
+          },
+                    textColor: Colors.white,
+                    color: Colors.green,
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Text(
+                      "UPDATE",
+                    ),
+                  ),
+                 
+            
+                     ]
+                    )
+                    
+                    
+                
+                 ),
+            )
+            );
+  }
+
+ 
 }
