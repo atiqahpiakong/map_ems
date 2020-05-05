@@ -1,7 +1,8 @@
 import 'dart:ui';
-import 'home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'homescreen_admin.dart';
+import 'home_screen.dart';
 
 class EmailValidator {
   static String validate(String value) {
@@ -37,8 +38,38 @@ class FormScreen extends StatefulWidget {
   }
 }
 
+enum ConfirmAction { CANCEL, OKAY }
+
 class FormScreenState extends State<FormScreen> {
+  Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
+    return showDialog<ConfirmAction>(
+      context: context,
+      barrierDismissible: true, // user must tap button for close dialog!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          backgroundColor: Color(0xff00162b),
+          title: Center(
+            child: Text(
+              'EMS',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          content: const Text(
+            'Enter atiqah@gmail.com for EMPLOYEE login or balqeshy@gmail.com for ADMIN login',
+            style: TextStyle(color: Colors.white),
+          ),
+        );
+      },
+    );
+  }
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  String email = '';
+  String password = '';
+  final TextEditingController _passwordController = TextEditingController();
 
   bool _rememberMe = false;
 
@@ -57,7 +88,8 @@ class FormScreenState extends State<FormScreen> {
           decoration: BoxDecoration(color: Colors.transparent),
           height: 60.0,
           child: TextFormField(
-            validator: EmailValidator.validate,
+            // validator: EmailValidator.validate,
+            controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -86,7 +118,8 @@ class FormScreenState extends State<FormScreen> {
           decoration: BoxDecoration(color: Colors.transparent),
           height: 60.0,
           child: TextFormField(
-            validator: PasswordValidator.validate,
+            // validator: PasswordValidator.validate,
+            controller: _passwordController,
             obscureText: true,
             style: TextStyle(color: Colors.white, fontFamily: 'OpenSans'),
             decoration: InputDecoration(
@@ -150,13 +183,46 @@ class FormScreenState extends State<FormScreen> {
         width: double.infinity,
         child: RaisedButton(
             elevation: 5.0,
+            // onPressed: () async {
+            //   if (_formKey.currentState.validate()) {
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder:( context){
+            //           return new BottomNavBar();
+            //         }));
+            //       }},
+
+            // login for different user
+
             onPressed: () async {
-              if (_formKey.currentState.validate()) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder:( context){
-                      return new BottomNavBar();
-                    }));
-                  }},
+              email = _emailController.value.text;
+              password = _passwordController.value.text;
+              print('email: $email');
+              if (email != 'atiqah@gmail.com' ||
+                  email != 'balqeshy@gmail.com') {
+                setState(() {
+                  _asyncConfirmDialog(context);
+                });
+              }
+              if (email == 'atiqah@gmail.com' && password == '123456') {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return new BottomNavBar();
+                }));
+                // if (_formKey.currentState.validate()) {
+                //   //_signin();
+                // }
+              }
+
+              if (email == 'balqeshy@gmail.com' && password == '123456') {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return new AdminNavBar();
+                }));
+                // if (_formKey.currentState.validate()) {
+                //   //_signin();
+                // }
+              }
+
+              print('Sign In');
+            },
             padding: EdgeInsets.all(15.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
@@ -172,6 +238,7 @@ class FormScreenState extends State<FormScreen> {
                 ))));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Form(
         key: _formKey,
