@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:emsproject/model/employee.dart';
 
 
 class EditProfile extends StatefulWidget {
+  final Employee emp;
+  EditProfile(this.emp);
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<EditProfile> {
 
-    Widget _greenColors() {
+  
+  var nameTemp;
+  var contactTemp;
+  var emailTemp;
+  var addressTemp;
+
+  Widget _greenColors() {
     return Positioned(
       top: 0,
       child: Container(
@@ -26,77 +36,68 @@ class _ProfilePageState extends State<EditProfile> {
                  CircleAvatar(
                    backgroundImage: ExactAssetImage('assets/img/profile.png'),
                    backgroundColor: Color(0xff3DBC93), 
-                    radius: 55,
+                    radius: 60,
                   
                 )
                                   
                 ],
               ),
               SizedBox(
-                height: 35,
+                height: 10,
               ),
-              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                  widget.emp.name, textAlign: TextAlign.center,
+                  
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                   
+                  ),
+                ),
+                ],
+              ),
 
-              
+               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                  widget.emp.dept, textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.white,
+                    
+                    
+                  ),
+                ),
+                ],
+              ),
             ],
           ),
       ),
     );
   }
 
-  Widget _name() {
+  Widget _contact() {
     return new Container (
                 width: MediaQuery.of(context).size.width * 0.88,
-                margin: EdgeInsets.all(22),
-                child: new Container(
-                  
-                  child: new Center(
-                    child: new Column(
-                     children : [
-                       new Padding(padding: EdgeInsets.only(top: 113.0)),
-                       
-                       new Padding(padding: EdgeInsets.only(top: 10.0)),
-                       new TextFormField(
-                         
-                      decoration: new InputDecoration(
-                        //labelText: " Enter Email",
-                        hintText: "\t\tSiti Nabilah ",
-                        fillColor: Color(0xffECECEC),
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(35.0),
-                        borderSide: BorderSide(color: Color(0xffECECEC))),
-            
-                      ),
-                      keyboardType: TextInputType.emailAddress,
-                      style: new TextStyle(
-                        fontFamily: "Poppins",
-                      ),
-                    ),
-                     ]
-                    )
-                 ),
-            )
-            );
-  }
-
-   Widget _contact() {
-    return new Container (
-                width: MediaQuery.of(context).size.width * 0.88,
-                margin: EdgeInsets.all(22),
+                margin: EdgeInsets.only(right:22, left:22, top:32, bottom:22),
                 child: new Container(
                   
                   child: new Center(
                     child: new Column(
                      children : [
                        new Padding(padding: EdgeInsets.only(top: 180.0)),
-                       
                        new Padding(padding: EdgeInsets.only(top: 10.0)),
                        new TextFormField(
-                         
+                         textInputAction: TextInputAction.done,
                       decoration: new InputDecoration(
                         //labelText: " Enter Email",
-                        hintText: "\t\t012-3456789",
+                        hintStyle: TextStyle(color: Colors.black),
+                        hintText: "\t\t" + widget.emp.contact,
                         fillColor: Color(0xffECECEC),
                         filled: true,
                         enabledBorder: OutlineInputBorder(
@@ -108,6 +109,9 @@ class _ProfilePageState extends State<EditProfile> {
                       style: new TextStyle(
                         fontFamily: "Poppins",
                       ),
+
+                      onChanged: (hintText) {
+                        setState(() => contactTemp = hintText);}, 
                     ),
                      ]
                     )
@@ -116,10 +120,12 @@ class _ProfilePageState extends State<EditProfile> {
             );
   }
 
+   
+
   Widget _email() {
       return new Container (
                 width: MediaQuery.of(context).size.width * 0.88,
-                margin: EdgeInsets.all(22),
+                margin: EdgeInsets.only(right:22, left:22, top:37, bottom:22),
                 child: new Container(
                   
                   child: new Center(
@@ -129,10 +135,12 @@ class _ProfilePageState extends State<EditProfile> {
                        
                        new Padding(padding: EdgeInsets.only(top: 10.0)),
                        new TextFormField(
+                         textInputAction: TextInputAction.done,
                          
                       decoration: new InputDecoration(
                         //labelText: " Enter Email",
-                        hintText: "\t\tsitinabilah0123@gmail.com",
+                        hintStyle: TextStyle(color: Colors.black),
+                        hintText: "\t\t" + widget.emp.email,
                         fillColor: Color(0xffECECEC),
                         filled: true,
                         enabledBorder: OutlineInputBorder(
@@ -144,6 +152,9 @@ class _ProfilePageState extends State<EditProfile> {
                       style: new TextStyle(
                         fontFamily: "Poppins",
                       ),
+
+                      onChanged: (hintText) {
+                       setState(() => emailTemp = hintText);},
                     ),
                      ]
                     )
@@ -152,11 +163,11 @@ class _ProfilePageState extends State<EditProfile> {
             );
   }
 
-  Widget _address() {
-      return new Container (
+ Widget _address() {
+     return new Container (
                 width: MediaQuery.of(context).size.width * 0.88,
                 
-                margin: EdgeInsets.all(22),
+                margin: EdgeInsets.only(right:22, left:22, top:42, bottom:22),
                 child: new Container(
                   
                   child: new Center(
@@ -167,10 +178,11 @@ class _ProfilePageState extends State<EditProfile> {
                        
                        new Padding(padding: EdgeInsets.only(top: 10.0)),
                        new TextFormField(
+                        textInputAction: TextInputAction.done,
                          
                       decoration: new InputDecoration(
-                        //labelText: " Enter Email",
-                        hintText: "\t\tNo.20 Taman Sri Pinang, Parit Mesjid Pontian Johor",
+                        hintStyle: TextStyle(color: Colors.black),
+                        hintText: "\t\t" + widget.emp.address,
                         fillColor: Color(0xffECECEC),
                         filled: true,
                         enabledBorder: OutlineInputBorder(
@@ -183,6 +195,8 @@ class _ProfilePageState extends State<EditProfile> {
                       style: new TextStyle(
                         fontFamily: "Poppins",
                       ),
+                      onChanged: (hintText) {
+                       setState(() => addressTemp = hintText);},
                     ),
 
                      SizedBox(
@@ -194,9 +208,27 @@ class _ProfilePageState extends State<EditProfile> {
                            final snackBar = SnackBar(
                               content: Text('Profile has been updated'),
                               duration: Duration(seconds: 2));
-                          globalKey.currentState.showSnackBar(snackBar);
+                              globalKey.currentState.showSnackBar(snackBar);
+                         
 
-          },
+                          //Navigator.of(context).pop(widget.emp);
+                          if(nameTemp !=null)
+                          {
+                            setState(() => widget.emp.name = nameTemp);
+                          }
+                          if(contactTemp !=null)
+                          {
+                             setState(() => widget.emp.contact = contactTemp);
+                          }
+                          if(emailTemp !=null)
+                          {
+                            setState(() => widget.emp.email = emailTemp);
+                          }
+                          if(addressTemp != null)
+                          {
+                            setState(() => widget.emp.address = addressTemp);
+                          }
+                    },
                     textColor: Colors.white,
                     color: Colors.green,
                     padding: const EdgeInsets.all(8.0),
@@ -216,10 +248,16 @@ class _ProfilePageState extends State<EditProfile> {
             );
   }
 
+
+  
+  
   final globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      
+      resizeToAvoidBottomPadding: true,
       key: globalKey,
       appBar: AppBar(
         elevation: 0,
@@ -236,17 +274,16 @@ class _ProfilePageState extends State<EditProfile> {
         
         //actions: <Widget>[IconButton(icon: Icon(Icons.edit, color: Colors.white),onPressed: (){},),],
       ),
-
       body: SingleChildScrollView(
+        
         child: Stack(
           children: <Widget>[
             Container(
-              color: Colors.white,
+              color: Colors.blue[100],
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
             ),
             _greenColors(),
-            _name(),
             _contact(),
             _email(),
             _address(),
@@ -260,5 +297,8 @@ class _ProfilePageState extends State<EditProfile> {
 
       ),
     );
+    
   }
+
+  
 }
