@@ -17,11 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Color(0xffECECEC),
+       backgroundColor: Colors.blue[100],
         appBar: AppBar(
         brightness: Brightness.light,
         title: Text(
-          "EMS",
+          "HOME",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         automaticallyImplyLeading: false,
