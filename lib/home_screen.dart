@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'profile_page.dart';
 import 'menu.dart';
+import 'package:emsproject/model/empmockdata.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -15,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   var pages = [
     new HomeScreen(),
     new HomeScreen2(),
-    new ProfilePage(),
+    new ProfilePage(mockListEmp[2]),
   ];
 
    @override

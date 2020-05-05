@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'editprofile.dart';
+import 'package:emsproject/model/empmockdata.dart';
+import 'package:emsproject/model/employee.dart';
 
 class ProfilePage extends StatefulWidget {
+  final Employee emp;
+  ProfilePage(this.emp);
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
 
-    Widget _greenColors() {
+
+  Widget _greenColors() {
     return Positioned(
       top: 0,
       child: Container(
@@ -39,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                  "Nurul Atiqah ", textAlign: TextAlign.center,
+                  widget.emp.name, textAlign: TextAlign.center,
                   
                   style: TextStyle(
                     fontSize: 25.0,
@@ -55,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                  "Software Department ", textAlign: TextAlign.center,
+                  widget.emp.dept, textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15.0,
                     color: Colors.white,
@@ -99,7 +105,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: 20,
                   ),
                   Text(
-                  "012-3456789 ", 
+                  widget.emp.contact, 
                   style: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
@@ -145,7 +151,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: 20,
                   ),
                   Text(
-                  "atiqahpkg@gmail.com ", 
+                  widget.emp.email, 
                   style: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
@@ -162,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-   Widget _userAddress() {
+  Widget _userAddress() {
     return Positioned(
       top: 335,
       child: Container(
@@ -192,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Flexible(
                     child:Text(
-                  "No. 20 Taman Sri Pinang, Parit Mesjid, Pontian Johor ", 
+                  widget.emp.address, 
                   style: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
@@ -208,16 +214,16 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
-
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         
         brightness: Brightness.light,
         
         title: Text(
-          "EMS",
+          "PROFILE",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         
@@ -235,19 +241,18 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: <Widget>[
           
           IconButton(icon: Icon(Icons.edit, color: Colors.white),onPressed: (){
-          Navigator.of(context)
-                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new EditProfile();
-            }));
+          Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => EditProfile()));
 
         },),],
       ),
-
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
             Container(
-              color: Color(0xffECECEC),
+              color: Colors.blue[100],
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
             ),
@@ -264,5 +269,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
       ),
     );
+    
   }
+
+  
 }
