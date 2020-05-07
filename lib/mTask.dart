@@ -21,7 +21,7 @@ class _ListPageState extends State<MyTaskPage> {
   Widget build(BuildContext context) {
 
     filter = widget._task.where(
-                     (task) => (task.status.contains("Pending"))).toList();
+                     (task) => (task.name.contains("Nurul Atiqah"))).toList();
 
     ListTile makeListTile(Task task) => ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
