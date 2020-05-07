@@ -8,7 +8,8 @@ List <Employee> mockListEmp = [
         email: "nurulbalqesh@gmail.com",
         contact: "0124689292",
         address: "Ipoh, Perak",
-        status: "Employee"
+        status: "Employee",
+        available: "yes"
         
         ),
 
@@ -19,8 +20,9 @@ List <Employee> mockListEmp = [
         email: "sitinabilah@gmail.com",
         contact: "012833992",
         address: "Pontian, Johor",
-        status: "Employee"
-
+        status: "Employee",
+        available: "yes"
+        
         ),
         
     Employee(
@@ -29,8 +31,9 @@ List <Employee> mockListEmp = [
         email: "atiqah@gmail.com",
         contact: "0139689292",
         address: "Kota Kinabalu, Sabah",
-        status: "Employee"
-
+        status: "Employee",
+        available: "yes"
+        
         ),
 
 
@@ -40,8 +43,9 @@ List <Employee> mockListEmp = [
         email: "ain@gmail.com",
         contact: "0143689292",
         address: "Rawang, Selangor",
-        status: "Employee"
-
+        status: "Employee",
+        available: "yes"
+        
         ),
 
     ];
