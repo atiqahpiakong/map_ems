@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'model/employee.dart';
 import 'list_emp_details.dart';
+import 'addempform.dart';
 
 class EmpList extends StatefulWidget {
   EmpList(this._employee);
@@ -102,6 +103,19 @@ class _EmpListState extends State<EmpList> {
         "LIST OF EMPLOYEE",
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
+
+            actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add_circle_outline, color: Colors.white, size: 30),
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              return AddEmployee();
+            }));
+          },
+        ),
+      ],
+      centerTitle: true,
     );
 
     return Scaffold(
