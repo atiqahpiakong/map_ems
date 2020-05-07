@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'homescreen_admin.dart';
+import 'homescreen_manager.dart';
 import 'home_screen.dart';
 
 class EmailValidator {
@@ -57,7 +58,7 @@ class FormScreenState extends State<FormScreen> {
             ),
           ),
           content: const Text(
-            'Enter atiqah@gmail.com for EMPLOYEE login or balqeshy@gmail.com for ADMIN login',
+            'Enter atiqah@gmail.com for EMPLOYEE login or balqeshy@gmail.com for ADMIN login or sitinabilah@gmail.com for MANAGER login',
             style: TextStyle(color: Colors.white),
           ),
         );
@@ -198,7 +199,8 @@ class FormScreenState extends State<FormScreen> {
               password = _passwordController.value.text;
               print('email: $email');
               if (email != 'atiqah@gmail.com' ||
-                  email != 'balqeshy@gmail.com') {
+                  email != 'balqeshy@gmail.com' ||
+                  email != 'sitinabilah@gmail.com' ) {
                 setState(() {
                   _asyncConfirmDialog(context);
                 });
@@ -215,6 +217,15 @@ class FormScreenState extends State<FormScreen> {
               if (email == 'balqeshy@gmail.com' && password == '123456') {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return new AdminNavBar();
+                }));
+                // if (_formKey.currentState.validate()) {
+                //   //_signin();
+                // }
+              }
+
+              if (email == 'sitinabilah@gmail.com' && password == '123456') {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return new ManagerNavBar();
                 }));
                 // if (_formKey.currentState.validate()) {
                 //   //_signin();
