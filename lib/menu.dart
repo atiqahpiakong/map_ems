@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'notification.dart';
 import 'mTask.dart';
 import 'package:emsproject/model/Task.dart';
+import 'package:emsproject/model/Leave.dart';
+import 'package:emsproject/mLeave.dart';
 
 class HomeScreen2 extends StatefulWidget {
   @override
@@ -78,7 +80,10 @@ class _HomeScreenState extends State<HomeScreen2> {
                     borderRadius: BorderRadius.circular(30)),
                 margin: EdgeInsets.all(8.0),
                 child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                        Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => MyLeavePage(mockLeave)));
+                      },
                     splashColor: Colors.blue[100],
                     child: Center(
                         child: Column(
