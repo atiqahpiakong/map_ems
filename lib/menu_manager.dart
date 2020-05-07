@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'notification.dart';
 import 'package:emsproject/model/Leave.dart';
 import 'package:emsproject/mLeave.dart';
+import 'task_Manager.dart';
+import 'package:emsproject/model/Task.dart';
 
 class ManagerMenu extends StatefulWidget {
   @override
@@ -104,7 +106,10 @@ class _ManagerMenu extends State<ManagerMenu> {
                       borderRadius: BorderRadius.circular(30)),
                   margin: EdgeInsets.all(8.0),
                   child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => ManagerTaskPage(mockTask)));
+                      },
                       splashColor: Colors.blue[100],
                       child: Center(
                           child: Column(
