@@ -15,6 +15,15 @@ class _EmployeeProfileState extends State<EmployeeProfile> {
 
   @override
   Widget build(BuildContext context) {
+
+    final pics = Container(
+
+        padding: EdgeInsets.only(top: 20.0),
+        child: CircleAvatar(
+          backgroundImage: ExactAssetImage('assets/img/profile.png'),
+          backgroundColor: Color(0xff3DBC93),
+          radius: 50,
+        ));
     
     final name = Container(
       width: MediaQuery.of(context).size.width * 10.0,
@@ -219,7 +228,7 @@ class _EmployeeProfileState extends State<EmployeeProfile> {
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[name, dept, email, contact, address],
+            children: <Widget>[pics, name, dept, email, contact, address],
           ),
         ));
   }
