@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'homescreen_admin.dart';
+import 'homescreen_admin.dart';
 import 'home_screen.dart';
 
 class EmailValidator {
@@ -214,7 +214,7 @@ class FormScreenState extends State<FormScreen> {
 
               if (email == 'balqeshy@gmail.com' && password == '123456') {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  // return new AdminNavBar();
+                  return new AdminNavBar();
                 }));
                 // if (_formKey.currentState.validate()) {
                 //   //_signin();
