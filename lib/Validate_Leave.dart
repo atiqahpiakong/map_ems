@@ -25,14 +25,14 @@ class _ListPageState extends State<LeavePage> {
             padding: EdgeInsets.only(left: 20.0, right:0.0),
             
             child: CircleAvatar(
-                   backgroundImage: ExactAssetImage('assets/profile.png'),
+                   backgroundImage: ExactAssetImage('assets/img/profile.png'),
                    backgroundColor: Color(0xff3DBC93), 
                     radius: 30,
               ),
           ),
 
           title: Center(
-            child: Text(
+            child: Text(leave.name +"\n" +
             leave.dateFrom + " - "+leave.dateTo,
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
@@ -127,7 +127,7 @@ class _ListPageState extends State<LeavePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: ExactAssetImage('assets/profile.png'),
+            backgroundImage: ExactAssetImage('assets/img/profile.png'),
             backgroundColor: Color(0xff3DBC93), 
             radius: 30, 
           ),
@@ -170,7 +170,8 @@ class _ListPageState extends State<LeavePage> {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return alert;
+      
+      return  alert;
     },
   );
 }
