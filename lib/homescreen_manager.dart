@@ -15,7 +15,7 @@ class _ManagerNavBar extends State<ManagerNavBar> {
   var pages = [
     new HomeScreen(),
     new ManagerMenu(),
-    new ProfilePage(mockListEmp[0]),
+    new ProfilePage(mockListEmp[1]),
   ];
 
   @override
