@@ -1,7 +1,10 @@
+import 'package:emsproject/employeepage.dart';
+import 'package:emsproject/model/empmockdata.dart';
 import 'package:flutter/material.dart';
 import 'notification.dart';
 import 'package:emsproject/model/Leave.dart';
 import 'package:emsproject/Validate_Leave.dart';
+import 'employeepage.dart';
 
 class AdminMenu extends StatefulWidget {
   @override
@@ -137,7 +140,10 @@ class _AdminMenu extends State<AdminMenu> {
                       borderRadius: BorderRadius.circular(30)),
                   margin: EdgeInsets.all(8.0),
                   child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                          Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => EmpList(mockListEmp)));
+                      },
                       splashColor: Colors.blue[100],
                       child: Center(
                           child: Column(
