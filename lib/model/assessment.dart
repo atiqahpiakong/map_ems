@@ -9,5 +9,5 @@ class Assessment {
       : this(Employees.copy(from.member), [...from.points]);
 
   double get percent =>
-      (points.reduce((sum, item) => sum + item) / 20.0) * 100.0;
+      (points.reduce((sum, item) => sum + item) / 28.0) * 100.0;
 }
