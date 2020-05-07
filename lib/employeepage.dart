@@ -18,6 +18,8 @@ class _EmpListState extends State<EmpList> {
   @override
   Widget build(BuildContext context) {
     
+    data = widget._employee.where(
+                     (emp) => (emp.available.contains("yes"))).toList();
 
     
     ListTile makeListTile(Employee emp) => ListTile(
@@ -31,6 +33,14 @@ class _EmpListState extends State<EmpList> {
               radius: 30,
             ),
           ),
+           trailing: IconButton(
+            icon: Icon(Icons.delete, color: Colors.redAccent,), 
+            onPressed: (){
+              setState(() => emp.available = "no");
+            }
+            
+            )
+          ,
 
           title: Text(
             emp.name,
@@ -76,9 +86,9 @@ class _EmpListState extends State<EmpList> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: widget._employee.length,
+        itemCount: data.length,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(widget._employee[index]);
+          return makeCard(data[index]);
         },
       ),
     );
