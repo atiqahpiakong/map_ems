@@ -245,7 +245,7 @@ class _ProfilePageState extends State<ProfilePage> {
           Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => EditProfile(mockListEmp[2])));
+                    builder: (context) => EditProfile(widget.emp)));
 
         },),],
       ),
