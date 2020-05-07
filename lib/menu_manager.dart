@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'notification.dart';
-
+import 'package:emsproject/model/Leave.dart';
+import 'package:emsproject/mLeave.dart';
 
 class ManagerMenu extends StatefulWidget {
   @override
@@ -85,8 +86,8 @@ class _ManagerMenu extends State<ManagerMenu> {
                   margin: EdgeInsets.all(8.0),
                   child: InkWell(
                       onTap: () {
-                        // Navigator.push(context,MaterialPageRoute(
-                        //     builder: (context) => LeavePage(mockLeave)));
+                        Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => MyLeavePage(mockLeave)));
                       },
                       splashColor: Colors.blue[100],
                       child: Center(
