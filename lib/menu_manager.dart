@@ -131,25 +131,7 @@ class _ManagerMenu extends State<ManagerMenu> {
                               style: new TextStyle(fontSize: 17.0))
                         ],
                       )))),
-              Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  margin: EdgeInsets.all(8.0),
-                  child: InkWell(
-                      onTap: () {},
-                      splashColor: Colors.blue[100],
-                      child: Center(
-                          child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Image.asset('assets/img/staff.png',
-                              height: 85, width: 200),
-                          Text(
-                            "Employees",
-                            style: new TextStyle(fontSize: 17.0),
-                          ),
-                        ],
-                      ))))
+            
             ])));
   }
 }
