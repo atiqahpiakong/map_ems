@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'notification.dart';
+import 'mTask.dart';
+import 'package:emsproject/model/Task.dart';
 
 class HomeScreen2 extends StatefulWidget {
   @override
@@ -92,7 +94,10 @@ class _HomeScreenState extends State<HomeScreen2> {
                     borderRadius: BorderRadius.circular(30)),
                 margin: EdgeInsets.all(8.0),
                 child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                        Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => MyTaskPage(mockTask)));
+                      },
                     splashColor: Colors.blue[100],
                     child: Center(
                         child: Column(
