@@ -23,6 +23,9 @@ class _ListPageState extends State<MyTaskPage> {
     filter = widget._task.where(
                      (task) => (task.name.contains("Nurul Atiqah"))).toList();
 
+    filter = widget._task.where(
+                     (task) => (task.available.contains("yes"))).toList();
+
     ListTile makeListTile(Task task) => ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
       leading: Container(
@@ -33,7 +36,13 @@ class _ListPageState extends State<MyTaskPage> {
           radius: 30, 
         ),
       ),
-    
+
+      trailing: IconButton(
+              icon: Icon(Icons.delete, color: Colors.redAccent,),
+              onPressed: () {
+                setState(() => task.available = "no");
+              }),
+              
       subtitle: Column (
         crossAxisAlignment: CrossAxisAlignment.start,
 

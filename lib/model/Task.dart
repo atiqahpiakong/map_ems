@@ -7,7 +7,9 @@ List <Task> mockTask = [
           subject: "UTM Report",
           description: "Please provide me an updated report from Jan - Dec. Thankyou.",
           status:"Completed",
-          note:"Done submit"),
+          note:"Done submit",
+          available: "yes"),
+          
 
       Task(
           name: "Nurul Atiqah",
@@ -15,7 +17,8 @@ List <Task> mockTask = [
           subject: "Financial Report",
           description: "Please provide me an updated finance on October 2019. Thankyou.",
           status:"Pending",
-          note:""),
+          note:"",
+          available: "yes"),
 
       Task(
           name: "Nurul Atiqah",
@@ -23,6 +26,7 @@ List <Task> mockTask = [
           subject: "Project Mega Report",
           description: "Please provide me an updated Project Mega on 2019. Thankyou.",
           status:"Pending",
-          note: ""),
+          note: "",
+          available: "yes"),
   
 ];

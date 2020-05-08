@@ -5,6 +5,7 @@ class Task {
   String description;
   String status;
   String note;
+  String available;
 
-  Task({this.name, this.due, this.subject, this.description, this.status, this.note});
+  Task({this.name, this.due, this.subject, this.description, this.status, this.note,  this.available});
 }
