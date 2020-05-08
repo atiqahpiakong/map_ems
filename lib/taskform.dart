@@ -159,6 +159,14 @@ class _TaskFormPage extends State<TaskFormPage> {
               ),
             ),
 
+             FloatingActionButton.extended(
+              onPressed: () {
+              },
+              backgroundColor: Colors.lightGreen,
+              label: Text('Submit'),
+              icon: Icon(Icons.check_circle),
+            )
+
           ],
         ),
       ),
