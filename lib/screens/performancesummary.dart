@@ -52,10 +52,10 @@ class _SummaryScreenState extends State<SummaryScreen> {
         
         itemCount: widget._data.length,
         itemBuilder: (context, index) => ListTile(
-          // leading: CircleAvatar(
-          //   backgroundImage: AssetImage('asset/profile.png'),
-          //   backgroundColor: Color(0xff3DBC93), 
-          //   radius: 30,),
+          leading: CircleAvatar(
+            backgroundImage: ExactAssetImage('assets/img/profile.png'),
+            backgroundColor: Color(0xff3DBC93), 
+            radius: 30,),
           title: Text(widget._data[index].member.fullName),
           subtitle: Text(widget._data[index].member.jobType),
           
