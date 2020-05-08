@@ -120,8 +120,11 @@ class _HomeScreenState extends State<HomeScreen2> {
                 margin: EdgeInsets.all(8.0),
                 child: InkWell(
                     onTap: () {
-                      Navigator.push(context,MaterialPageRoute(
-                            builder: (context) => PerformancePage()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PerformancePage()),
+                      );
                     },
                     splashColor: Colors.blue[100],
                     child: Center(

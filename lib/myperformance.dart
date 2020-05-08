@@ -31,11 +31,11 @@ class _CircleProgressState extends State<PerformancePage> with SingleTickerProvi
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        // title: Text(widget.title),
+        title: Text('My Performance'),
       ),
       body: Center(
           child: CustomPaint(
-
           foregroundPainter: CircleProgress(animation.value), // this will add custom painter after child
           child: Container(
             width: 200,
