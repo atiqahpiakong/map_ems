@@ -5,7 +5,8 @@ class Leave {
   String status;
   String type;
   String reason;
+  String available;
 
   Leave(
-      {this.name, this.dateFrom, this.dateTo, this.status, this.type, this.reason});
+      {this.name, this.dateFrom, this.dateTo, this.status, this.type, this.reason, this.available});
 }

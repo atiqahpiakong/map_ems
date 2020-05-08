@@ -23,6 +23,9 @@ class _ListPageState extends State<MyLeavePage> {
 
     filter = widget._leave.where(
                      (leave) => (leave.name.contains("Nurul Atiqah"))).toList();
+
+    filter = widget._leave.where(
+                     (leave) => (leave.available.contains("yes"))).toList();                
     
     ListTile makeListTile(Leave leave) => ListTile(
           contentPadding:
@@ -35,6 +38,13 @@ class _ListPageState extends State<MyLeavePage> {
                    backgroundColor: Color(0xff3DBC93), 
                     radius: 30,
               ),
+          ),
+
+          trailing: IconButton( icon: Icon(Icons.delete, color: Colors.redAccent,),
+              onPressed: () {
+                setState(() => leave.available = "no");
+              }
+
           ),
 
           title: Center(
