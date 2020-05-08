@@ -1,6 +1,7 @@
 import 'package:emsproject/model/myLeave.dart';
 import 'package:flutter/material.dart';
 import 'package:emsproject/details_myLeave.dart';
+import 'leaveform.dart';
 
 
 
@@ -119,13 +120,15 @@ class _ListPageState extends State<MyLeavePage> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
-          IconButton(icon: Icon(Icons.add_circle_outline ,color: Colors.white, size:30),onPressed: (){
-          Navigator.of(context)
-                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return null;
-            }));
-
-        },),],
+          IconButton(icon: Icon(Icons.add_circle_outline ,color: Colors.white, size:30),
+          
+          onPressed: (){
+             Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => LeaveFormPage()));
+          
+          },
+          ),
+          ],
       centerTitle: true,
     );
 

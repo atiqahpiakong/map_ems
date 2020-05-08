@@ -17,20 +17,9 @@ class _LeaveFormPage extends State<LeaveFormPage> {
   String _valFriends;
   var _leaveType = ['Medical Leave', 'Annual Leave', 'Others'];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        key: _formKey,
-        appBar: new AppBar(
-          centerTitle: true,
-          title: Text("APPLY LEAVE"),
-          backgroundColor: Color(0xff022264),
-        ),
-        backgroundColor: Colors.blue[100],
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
+
+Widget _buildLeaveDates(){
+  return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Padding(
@@ -126,8 +115,11 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                     ],
                   ),
                 ],
-              ),
-              Container(
+              );
+}
+
+Widget _buildLeaveType() {
+  return Container(
                   width: MediaQuery.of(context).size.width * 10.0,
                   margin:
                       const EdgeInsets.only(left: 20.0, right: 20.0, top: 5),
@@ -153,8 +145,11 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                                 // leave.leaveType = value;
                               });
                             }),
-                      ))),
-              Padding(
+                      )));
+}
+
+Widget _buildLeaveReason(){
+  return Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: new Container(
                   width: 360,
@@ -183,9 +178,11 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                     ),
                   ),
                 ),
-              ),
+              );
+}
 
-              FloatingActionButton.extended(
+Widget _buildSubmitButton(){
+  return     FloatingActionButton.extended(
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -193,7 +190,26 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                 backgroundColor: Colors.lightGreen,
                 label: Text('Submit'),
                 icon: Icon(Icons.check_circle),
-              )
+              );
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        key: _formKey,
+        appBar: new AppBar(
+          centerTitle: true,
+          title: Text("APPLY LEAVE"),
+          backgroundColor: Color(0xff022264),
+        ),
+        backgroundColor: Colors.blue[100],
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buildLeaveDates(),
+              _buildLeaveType(),
+              _buildLeaveReason(),
+              _buildSubmitButton(),     
             ]));
   }
 }
