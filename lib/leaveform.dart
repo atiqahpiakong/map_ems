@@ -184,6 +184,16 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                   ),
                 ),
               ),
+
+              FloatingActionButton.extended(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                splashColor: Colors.yellowAccent,
+                backgroundColor: Colors.lightGreen,
+                label: Text('Submit'),
+                icon: Icon(Icons.check_circle),
+              )
             ]));
   }
 }
