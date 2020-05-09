@@ -21,5 +21,5 @@ VIDEO DEMO DELIVERABLE #2 PROTOTYPE - QATS:
 https://www.youtube.com/watch?v=jRtiNx4wCPs
 
 PROJECT DELIVERABLE #3: PROTOTYPE FOR APPLICATION FOCUS SCREENS:
-https://www.youtube.com/watch?v=SAI02FVVbbM&t=25s
+https://youtu.be/xGjBzrGVdr8
 
