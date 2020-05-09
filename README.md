@@ -1,16 +1,25 @@
-# emsproject
+# PROJECT TITLE: EMPLOYEE MANAGEMENT SYSTEM
 
-A new Flutter project.
+Employee Management System consists of crucial work-related and personal information
+about an employee. The goal of this system is to provide a facility of applying and managing
+leaves of employees. Employee can apply for a leave by filling up a form in the system, an admin 
+will have to approve or reject the application. Besides that, employees information will be kept in a 
+profile, also allowing them to update their personal information from time-to-time. Not only that, 
+employees can look at their performance managed by the manager. Besides that, admin can also assign tasks 
+to their employees. In a nutshell, it is an online inventory of all employees of an organization. 
 
-## Getting Started
+GROUP MEMBER:
+1. NURUL AIN BINTI SHAHARUDIN - A17CS0174
+2. NURUL ATIQAH BINTI PIAKONG - A17CS0177
+3. NURUL BALQESH BINTI MOHAMED YASEEN - A17CS0178
+4. SITI NABILAH BINTI NORDIN - A17CS0210
 
-This project is a starting point for a Flutter application.
+GITHUB LINK:
+https://github.com/atiqahpiakong/map_ems.git
 
-A few resources to get you started if this is your first Flutter project:
+VIDEO DEMO DELIVERABLE #2 PROTOTYPE - QATS:
+https://www.youtube.com/watch?v=jRtiNx4wCPs
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+PROJECT DELIVERABLE #3: PROTOTYPE FOR APPLICATION FOCUS SCREENS:
+https://www.youtube.com/watch?v=SAI02FVVbbM&t=25s
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
