@@ -4,11 +4,15 @@ import 'home.dart';
 import 'profile_page.dart';
 import 'menu.dart';
 import 'package:emsproject/model/empmockdata.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'homescreen_admin.dart';
 
 class AdminNavBar extends StatefulWidget {
+   const AdminNavBar({Key key, @required this.user}) : super(key: key);
+  final FirebaseUser user;
   @override
   _AdminNavBar createState() => _AdminNavBar();
 }

@@ -4,8 +4,12 @@ import 'home.dart';
 import 'profile_page.dart';
 import 'package:emsproject/model/empmockdata.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class ManagerNavBar extends StatefulWidget {
+   const ManagerNavBar({Key key, @required this.user}) : super(key: key);
+  final FirebaseUser user;
   @override
   _ManagerNavBar createState() => _ManagerNavBar();
 }

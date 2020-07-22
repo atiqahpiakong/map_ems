@@ -4,32 +4,8 @@ import 'package:flutter/services.dart';
 import 'homescreen_admin.dart';
 import 'homescreen_manager.dart';
 import 'home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class EmailValidator {
-  static String validate(String value) {
-    if (value.isEmpty) {
-      return "Please Enter Email";
-    }
-    Pattern pattern = 'atiqahpkg@gmail.com';
-    RegExp regex = new RegExp(pattern);
-    if (!regex.hasMatch(value)) {
-      return 'Wrong Email';
-    }
-    return null;
-  }
-}
-
-class PasswordValidator {
-  static String validate(String value) {
-    if (value.isEmpty) {
-      return "Please Enter Password";
-    }
-    if (value != '123456') {
-      return "Wrong Password";
-    }
-    return null;
-  }
-}
 
 class FormScreen extends StatefulWidget {
   // This widget is the root of your application.
@@ -42,34 +18,34 @@ class FormScreen extends StatefulWidget {
 enum ConfirmAction { CANCEL, OKAY }
 
 class FormScreenState extends State<FormScreen> {
-  Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
-    return showDialog<ConfirmAction>(
-      context: context,
-      barrierDismissible: true, // user must tap button for close dialog!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          backgroundColor: Color(0xff00162b),
-          title: Center(
-            child: Text(
-              'EMS',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          content: const Text(
-            'Enter atiqah@gmail.com for EMPLOYEE login or balqeshy@gmail.com for ADMIN login or sitinabilah@gmail.com for MANAGER login',
-            style: TextStyle(color: Colors.white),
-          ),
-        );
-      },
-    );
-  }
+  // Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
+  //   return showDialog<ConfirmAction>(
+  //     context: context,
+  //     barrierDismissible: true, // user must tap button for close dialog!
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         shape:
+  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+  //         backgroundColor: Color(0xff00162b),
+  //         title: Center(
+  //           child: Text(
+  //             'EMS',
+  //             style: TextStyle(color: Colors.white),
+  //           ),
+  //         ),
+  //         content: const Text(
+  //           'Enter atiqah@gmail.com for EMPLOYEE login or balqeshy@gmail.com for ADMIN login or sitinabilah@gmail.com for MANAGER login',
+  //           style: TextStyle(color: Colors.white),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
-  String email = '';
-  String password = '';
+  String _email, _password;
+
   final TextEditingController _passwordController = TextEditingController();
 
   bool _rememberMe = false;
@@ -90,7 +66,13 @@ class FormScreenState extends State<FormScreen> {
           height: 60.0,
           child: TextFormField(
             // validator: EmailValidator.validate,
-            controller: _emailController,
+            // controller: _emailController,
+              validator: (input) {
+              if (input.isEmpty) {
+                return 'Please type an email';
+              }
+            },
+            onSaved: (input) => _email = input,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -120,7 +102,14 @@ class FormScreenState extends State<FormScreen> {
           height: 60.0,
           child: TextFormField(
             // validator: PasswordValidator.validate,
-            controller: _passwordController,
+            // controller: _passwordController,
+
+             validator: (input) {
+              if (input.length < 6) {
+                return 'Your password needs to be atleast 6 characters';
+              }
+            },
+            onSaved: (input) => _password = input,
             obscureText: true,
             style: TextStyle(color: Colors.white, fontFamily: 'OpenSans'),
             decoration: InputDecoration(
@@ -177,63 +166,13 @@ class FormScreenState extends State<FormScreen> {
       ),
     );
   }
-
-  Widget _buildLoginBtn() {
+Widget _buildLoginBtn() {
     return Container(
         padding: EdgeInsets.symmetric(vertical: 25.0),
         width: double.infinity,
         child: RaisedButton(
             elevation: 5.0,
-            // onPressed: () async {
-            //   if (_formKey.currentState.validate()) {
-            //     Navigator.push(context,
-            //         MaterialPageRoute(builder:( context){
-            //           return new BottomNavBar();
-            //         }));
-            //       }},
-
-            // login for different user
-
-            onPressed: () async {
-              email = _emailController.value.text;
-              password = _passwordController.value.text;
-              print('email: $email');
-              if (email != 'atiqah@gmail.com' ||
-                  email != 'balqeshy@gmail.com' ||
-                  email != 'sitinabilah@gmail.com' ) {
-                setState(() {
-                  _asyncConfirmDialog(context);
-                });
-              }
-              if (email == 'atiqah@gmail.com' && password == '123456') {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new BottomNavBar();
-                }));
-                // if (_formKey.currentState.validate()) {
-                //   //_signin();
-                // }
-              }
-
-              if (email == 'balqeshy@gmail.com' && password == '123456') {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new AdminNavBar();
-                }));
-                // if (_formKey.currentState.validate()) {
-                //   //_signin();
-                // }
-              }
-
-              if (email == 'sitinabilah@gmail.com' && password == '123456') {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new ManagerNavBar();
-                }));
-                // if (_formKey.currentState.validate()) {
-                //   //_signin();
-                // }
-              }
-
-              print('Sign In');
-            },
+            onPressed: signIn,
             padding: EdgeInsets.all(15.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
@@ -248,6 +187,7 @@ class FormScreenState extends State<FormScreen> {
                   fontFamily: 'OpenSans',
                 ))));
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -311,4 +251,66 @@ class FormScreenState extends State<FormScreen> {
           ),
         ));
   }
+
+
+  // Firebase Authentication
+  Future<void> signIn() async {
+    final formState = _formKey.currentState;
+    if (formState.validate()) {
+      formState.save();
+      try {
+        FirebaseUser user = (await FirebaseAuth.instance
+                .signInWithEmailAndPassword(email: _email, password: _password))
+            .user;
+        if (_email == "admin@gmail.com") {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AdminNavBar(user: user)));
+        } else if (_email == "manager@gmail.com") {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ManagerNavBar(user: user)));
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BottomNavBar(user: user)));
+        }
+      } catch (e) {
+        dialog(context);
+        print(e.message);
+      }
+    }
+  }
+
+  void dialog(BuildContext context) {
+    var alertDialog = AlertDialog(
+      backgroundColor: Color.fromRGBO(40, 20, 40, 10),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      title: Text(
+        "Wrong Email or Password",
+        style: TextStyle(color: Colors.white),
+      ),
+      content: Text(
+        "Please enter the correct email and password.",
+        style: TextStyle(color: Colors.white),
+      ),
+      actions: <Widget>[
+        FlatButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FormScreen();
+              }));
+            },
+            child: Text("OK"))
+      ],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alertDialog;
+        });
+  }
+
 }

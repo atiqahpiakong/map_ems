@@ -4,8 +4,12 @@ import 'profile_page.dart';
 import 'menu.dart';
 import 'package:emsproject/model/empmockdata.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({Key key, @required this.user}) : super(key: key);
+  final FirebaseUser user;
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }

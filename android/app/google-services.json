@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "40924534220",
+    "firebase_url": "https://qats-ems.firebaseio.com",
+    "project_id": "qats-ems",
+    "storage_bucket": "qats-ems.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40924534220:android:871376a4936a5be64ff969",
+        "android_client_info": {
+          "package_name": "com.example.emsproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40924534220-fj0csv9jguus7et54rqdj4gnlhr11lnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6MNB2o5lYx7QHx9P-xNk_W3SB8rySFOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40924534220-fj0csv9jguus7et54rqdj4gnlhr11lnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
