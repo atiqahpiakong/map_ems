@@ -70,7 +70,7 @@ class _DateTimeDialogState extends State<DateTimeDialog> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                'Select time',
+                'Select Date & Time',
                 style: Theme.of(context).textTheme.title,
               ),
               const SizedBox(height: 16),
@@ -130,7 +130,7 @@ class _DateTimeDialogState extends State<DateTimeDialog> {
                     borderRadius: BorderRadius.circular(30)),
                 color: Colors.deepOrange,
                 child: Text(
-                  'Select Date',
+                  'Select',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
