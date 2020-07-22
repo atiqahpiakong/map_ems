@@ -74,7 +74,7 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                 ),
               ),
               new RaisedButton(
-                child: Text('Choose Date'),
+                child: Text('Choose Date & Time'),
                 color: Colors.blue,
                 splashColor: Color.fromRGBO(10, 20, 10, 10),
                 shape: RoundedRectangleBorder(
@@ -112,7 +112,7 @@ class _LeaveFormPage extends State<LeaveFormPage> {
               ),
             ),
             new RaisedButton(
-              child: Text('Choose Date'),
+              child: Text('Choose Date & Time'),
               color: Colors.blue,
               splashColor: Color.fromRGBO(10, 20, 10, 10),
               shape: RoundedRectangleBorder(
