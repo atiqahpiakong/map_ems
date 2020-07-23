@@ -1,12 +1,14 @@
+import 'package:emsproject/services/user_data_service.dart';
 import 'package:flutter/material.dart';
-import 'model/employee.dart';
+//import 'model/employee.dart';
 import 'list_emp_details.dart';
 import 'addempform.dart';
+import 'model/user_model.dart';
 
 class EmpList extends StatefulWidget {
-  EmpList(this._employee);
+  // EmpList(this._employee);
 
-  final List _employee;
+  // final List _employee;
   // final String title;
 
   @override
@@ -14,114 +16,136 @@ class EmpList extends StatefulWidget {
 }
 
 class _EmpListState extends State<EmpList> {
-  List<Employee> data;
+  List<User> _user;
+  final dataService = UserDataService();
 
   @override
   Widget build(BuildContext context) {
-    
-    data = widget._employee.where(
-                     (emp) => (emp.available.contains("yes"))).toList();
+    return FutureBuilder<List<User>>(
+        future: dataService.getAllUser(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            _user = snapshot.data;
+            return _buildMainScreen(snapshot);
+          }
+          return _buildFetchingDataScreen();
+        });
+  }
 
-    
-    ListTile makeListTile(Employee emp) => ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 13.0, vertical: 7.0),
-
-          leading: Container(
-            padding: EdgeInsets.only(left: 30.0, right: 0.0),
-            child: CircleAvatar(
-              backgroundImage: ExactAssetImage('assets/img/profile.png'),
-              backgroundColor: Color(0xff3DBC93),
-              radius: 30,
-            ),
+  Scaffold _buildMainScreen(snapshot) {
+    return Scaffold(
+      backgroundColor: Colors.blue[100],
+      appBar: AppBar(
+        elevation: 0,
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Color(0xff022264),
+        title: Text(
+          "LIST OF EMPLOYEE",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add_circle_outline, color: Colors.white, size: 30),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute<Null>(builder: (BuildContext context) {
+                return AddEmployee();
+              }));
+            },
           ),
-           trailing: IconButton(
-            icon: Icon(Icons.delete, color: Colors.redAccent,), 
-            onPressed: (){
-              setState(() => emp.available = "no");
-            }
-            
-            )
-          ,
-
-          title: Text(
-            emp.name,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-
-          subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                height: 15.0,
-                width: 300.0,
-                child: Container(
-                  child: Text(
-                    emp.dept,
-                    style: TextStyle(color: Colors.black, fontSize: 12.0),
+        ],
+        centerTitle: true,
+      ),
+      body: Container(
+        child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: _user.length,
+          itemBuilder: (BuildContext context, int index) {
+            User user = snapshot.data[index];
+            return Card(
+              elevation: 6.0,
+              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffECECEC)),
+                child: ListTile(
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 13.0, vertical: 7.0),
+                  leading: Container(
+                    padding: EdgeInsets.only(left: 30.0, right: 0.0),
+                    child: CircleAvatar(
+                      backgroundImage:
+                          ExactAssetImage('assets/img/profile.png'),
+                      backgroundColor: Color(0xff3DBC93),
+                      radius: 30,
+                    ),
                   ),
+                  trailing: IconButton(
+                    icon: Icon(
+                      Icons.delete,
+                      color: Colors.redAccent,
+                    ),
+                    onPressed: () => navigateOnPress(snapshot, index, user),
+                  ),
+                  title: Text(
+                    '${user.name}',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                        width: 300.0,
+                        child: Container(
+                          child: Text(
+                            '${user.department}',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 12.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EmployeeProfile()));
+                  },
                 ),
               ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => EmployeeProfile(emp: emp)));
-          },
-        );
-
-    Card makeCard(Employee emp) => Card(
-          elevation: 6.0,
-          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          child: Container(
-            decoration: BoxDecoration(color: Color(0xffECECEC)),
-            child: makeListTile(emp),
-          ),
-        );
-
-    final makeBody = Container(
-      child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return makeCard(data[index]);
-        },
-      ),
-    );
-
-    final topAppBar = AppBar(
-      elevation: 0,
-      brightness: Brightness.light,
-      iconTheme: IconThemeData(color: Colors.white),
-      backgroundColor: Color(0xff022264),
-      title: Text(
-        "LIST OF EMPLOYEE",
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-      ),
-
-            actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.add_circle_outline, color: Colors.white, size: 30),
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return AddEmployee();
-            }));
+            );
           },
         ),
-      ],
-      centerTitle: true,
+      ),
     );
+  }
 
+  Scaffold _buildFetchingDataScreen() {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: topAppBar,
-      body: makeBody,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircularProgressIndicator(),
+            SizedBox(height: 50),
+            Text('Fetching data... Please wait'),
+          ],
+        ),
+      ),
     );
+  }
+
+  void navigateOnPress(snapshot, int index, User _user) {
+    return setState(() {
+      snapshot.data.removeAt(index);
+      dataService.deleteUser(id: _user.id);
+    });
   }
 }
