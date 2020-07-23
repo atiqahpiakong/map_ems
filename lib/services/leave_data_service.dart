@@ -4,7 +4,6 @@ import './rest_service.dart';
 import '../model/leave_model.dart';
 
 class LeaveDataService {
-
   static final LeaveDataService _instance = LeaveDataService._constructor();
   factory LeaveDataService() {
     return _instance;
@@ -12,7 +11,6 @@ class LeaveDataService {
 
   LeaveDataService._constructor();
   final rest = RestService();
-
 
   Future<List<Leave>> getAllLeave() async {
     final listJson = await rest.get('leave');
@@ -31,12 +29,10 @@ class LeaveDataService {
         .toList();
   }
 
-  
   Future deleteLeave({String id}) async {
     await rest.delete('leave/$id');
   }
 
-  
   Future<Leave> createLeave({Leave leave}) async {
     final json = await rest.post('leave', data: leave);
     return Leave.fromJson(json);
@@ -46,6 +42,4 @@ class LeaveDataService {
     final json = await rest.patch('leave/$id', data: {'status': status});
     return Leave.fromJson(json);
   }
-
-
 } // class Leave

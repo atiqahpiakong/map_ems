@@ -2,9 +2,8 @@
 import 'package:emsproject/model/leave_model.dart';
 import 'package:flutter/material.dart';
 import './services/leave_data_service.dart';
+
 class LeavePage extends StatefulWidget {
-
-
   @override
   _ListPageState createState() => _ListPageState();
 }
@@ -67,8 +66,9 @@ class _ListPageState extends State<LeavePage> {
 
                     title: Center(
                       child: Text(
-                        '${leave.name}' +"\n" +
-                        '${leave.leavefrom} to ${leave.leaveto}',
+                        '${leave.name}' +
+                            "\n" +
+                            '${leave.leavefrom} to ${leave.leaveto}',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
@@ -119,14 +119,12 @@ class _ListPageState extends State<LeavePage> {
   alertDialog(BuildContext context, Leave leave) {
     AlertDialog alert = AlertDialog(
       content: Container(
-         height: 180,
+        height: 180,
         // //width: 50,
-         padding: EdgeInsets.only(left:10, right:10),
+        padding: EdgeInsets.only(left: 10, right: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          
           children: <Widget>[
-          
             CircleAvatar(
               backgroundImage: ExactAssetImage('assets/img/profile.png'),
               backgroundColor: Color(0xff3DBC93),
@@ -160,23 +158,21 @@ class _ListPageState extends State<LeavePage> {
                     RaisedButton(
                       child: new Text("Approve"),
                       color: Color(0xffB0EFCB),
-                      onPressed: () async{
-
-                        Leave updatedLeave = await dataService.updateLeave(id: leave.id, status: "Approved");
-                        setState(() => leave.status  = updatedLeave.status);
+                      onPressed: () async {
+                        Leave updatedLeave = await dataService.updateLeave(
+                            id: leave.id, status: "Approved");
+                        setState(() => leave.status = updatedLeave.status);
                         Navigator.of(context).pop();
                       },
-
                     ),
                     SizedBox(width: 4),
                     RaisedButton(
                       child: new Text("Reject"),
                       color: Color(0xffEFB0C3),
-                    
-                      onPressed: ()async {
-
-                        Leave updatedLeave = await dataService.updateLeave(id: leave.id, status: "Rejected");
-                        setState(() => leave.status  = updatedLeave.status);
+                      onPressed: () async {
+                        Leave updatedLeave = await dataService.updateLeave(
+                            id: leave.id, status: "Rejected");
+                        setState(() => leave.status = updatedLeave.status);
                         Navigator.of(context).pop();
                       },
                     ),

@@ -47,7 +47,7 @@ class _ListPageState extends State<MyTaskPage> {
           shrinkWrap: true,
           itemCount: _tasks.length,
           itemBuilder: (BuildContext context, int index) {
-          Task task = snapshot.data[index];
+            
             return Card(
               elevation: 8.0,
               margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
@@ -70,7 +70,7 @@ class _ListPageState extends State<MyTaskPage> {
                       Icons.delete,
                       color: Colors.redAccent,
                     ),
-                    onPressed: () => navigateOnPress(snapshot, index, task),
+                   
                   ),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,10 +146,5 @@ class _ListPageState extends State<MyTaskPage> {
     );
   }
 
-  void navigateOnPress(snapshot, int index, Task _tasks) {
-    return setState(() {
-      snapshot.data.removeAt(index);
-      dataService.deleteTask(id: _tasks.id);
-    });
-  }
+
 }
