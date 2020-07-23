@@ -162,9 +162,8 @@ class _ListPageState extends State<LeavePage> {
                       color: Color(0xffB0EFCB),
                       onPressed: () async{
 
-                         Leave updatedLeave = await dataService.updateLeave(id: leave.id, status: "Approved");
+                        Leave updatedLeave = await dataService.updateLeave(id: leave.id, status: "Approved");
                         setState(() => leave.status  = updatedLeave.status);
-                        
                         Navigator.of(context).pop();
                       },
 
@@ -176,9 +175,9 @@ class _ListPageState extends State<LeavePage> {
                     
                       onPressed: ()async {
 
-                        // Leave updatedLeave = await dataService.updateLeave(id: leave.id, status: "Rejected");
-                        // setState(() => leave.status  = updatedLeave.status);
-                        // Navigator.of(context).pop();
+                        Leave updatedLeave = await dataService.updateLeave(id: leave.id, status: "Rejected");
+                        setState(() => leave.status  = updatedLeave.status);
+                        Navigator.of(context).pop();
                       },
                     ),
                   ],
