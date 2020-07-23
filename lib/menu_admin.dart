@@ -90,7 +90,7 @@ class _AdminMenu extends State<AdminMenu> {
                   child: InkWell(
                       onTap: () {
                         Navigator.push(context,MaterialPageRoute(
-                            builder: (context) => LeavePage(mockLeave)));
+                            builder: (context) => LeavePage()));
                       },
                       splashColor: Colors.blue[100],
                       child: Center(
