@@ -59,7 +59,10 @@ class _ProfilePageState extends State<ProfilePage> {
           IconButton(
             icon: Icon(Icons.edit, color: Colors.white),
             onPressed: () {
-             
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => EditProfile(_user[0])));
             },
           ),
         ],

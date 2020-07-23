@@ -20,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   var pages = [
     new HomeScreen(),
     new HomeScreen2(),
-    new ProfilePage(mockListEmp[2]),
+    new ProfilePage(),
   ];
 
    @override

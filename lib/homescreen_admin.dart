@@ -22,7 +22,7 @@ class _AdminNavBar extends State<AdminNavBar> {
   var pages = [
     new HomeScreen(),
     new AdminMenu(),
-    new ProfilePage(mockListEmp[0]),
+    new ProfilePage(),
   ];
 
   @override
