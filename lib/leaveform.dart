@@ -65,7 +65,7 @@ class _LeaveFormPage extends State<LeaveFormPage> {
                   child: Text(
                     _dateTime == leavefrom
                         ? ' Leave From '
-                        : myFormat.format(_dateTime),
+                      : _dateTime.toLocal().toString(),
                     style: TextStyle(
                         color: Colors.grey,
                         fontSize: 20,
