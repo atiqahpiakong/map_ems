@@ -73,18 +73,18 @@ class _ListPageState extends State<MyTaskPage> {
         ],
       ),
     
-    onTap: () {
-      if(task.status=="Completed"){
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailCompletedTaskPage(task: task)));}
-      else{
-        Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => DetailPendingTaskPage(task: task)));} 
-    },
+    // onTap: () {
+    //   if(task.status=="Completed"){
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //         builder: (context) => DetailCompletedTaskPage(task: task)));}
+    //   else{
+    //     Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //         builder: (context) => DetailPendingTaskPage(task: task)));} 
+    // },
     );
 
     Card makeCard(Task task) => Card(

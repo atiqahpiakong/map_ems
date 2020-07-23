@@ -110,7 +110,7 @@ class _ManagerMenu extends State<ManagerMenu> {
                   child: InkWell(
                       onTap: () {
                         Navigator.push(context,MaterialPageRoute(
-                            builder: (context) => ManagerTaskPage(mockTask)));
+                            builder: (context) => ManagerTaskPage()));
                       },
                       splashColor: Colors.blue[100],
                       child: Center(
