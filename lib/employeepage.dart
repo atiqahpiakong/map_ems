@@ -85,11 +85,9 @@ class _EmpListState extends State<EmpList> {
                     icon: Icon(
                       Icons.delete,
                       color: Colors.redAccent,
+                      ),
+                      onPressed: () => navigateOnPress(snapshot, index, user),
                     ),
-                    onPressed: () {
-                      
-                    },
-                  ),
                   title: Text(
                     '${user.name}',
                     style: TextStyle(
@@ -142,6 +140,13 @@ class _EmpListState extends State<EmpList> {
         ),
       ),
     );
+  }
+
+   void navigateOnPress(snapshot, int index, User _user) {
+    return setState(() {
+      snapshot.data.removeAt(index);
+      dataService.deleteUser(id: _user.id);
+    });
   }
 
 
