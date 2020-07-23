@@ -116,7 +116,7 @@ class _EmpListState extends State<EmpList> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EmployeeProfile()));
+                            builder: (context) => EmployeeProfile(user: user)));
                   },
                 ),
               ),
