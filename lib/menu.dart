@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen2> {
                 child: InkWell(
                     onTap: () {
                         Navigator.push(context,MaterialPageRoute(
-                            builder: (context) => MyTaskPage(mockTask)));
+                            builder: (context) => MyTaskPage()));
                       },
                     splashColor: Colors.blue[100],
                     child: Center(
