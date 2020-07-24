@@ -107,10 +107,10 @@ final dataService = TaskDataService();
                   children: <Widget>[
                     RaisedButton(
                       onPressed: () async {
-                        // Task updatedTask = await dataService.updateTask(id: widget.task.id, status: widget.task.status);
-                        // setState(() => widget.task.status  = updatedTask.status);
+                        Task updatedTask = await dataService.updateTask(id: widget.task.id, status: widget.task.status);
+                        setState(() => widget.task.status  = updatedTask.status);
 
-                        // dialog(context);
+                        dialog(context);
                       },
                       textColor: Colors.white,
                       color: Colors.green,
