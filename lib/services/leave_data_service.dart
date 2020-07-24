@@ -29,8 +29,9 @@ class LeaveDataService {
         .toList();
   }
 
-  Future deleteLeave({String id}) async {
-    await rest.delete('leave/$id');
+  Future<Leave> deleteLeave({String id}) async {
+    final json = await rest.delete('leave/$id');
+    return Leave.fromJson(json);
   }
 
   Future<Leave> createLeave({Leave leave}) async {

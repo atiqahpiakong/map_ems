@@ -57,7 +57,7 @@ class _ListPageState extends State<MyLeavePage> {
           shrinkWrap: true,
           itemCount: _leaves.length,
           itemBuilder: (BuildContext context, int index) {
-            Leave leave = snapshot.data[index];
+           Leave leave = snapshot.data[index];
             return Card(
               elevation: 6.0,
               margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),

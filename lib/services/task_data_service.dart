@@ -29,8 +29,9 @@ class TaskDataService {
         .toList();
   }
 
-  Future deleteTask({String id}) async {
-    await rest.delete('task/$id');
+  Future<Task> deleteTask({String id}) async {
+    final json = await rest.delete('task/$id');
+    return Task.fromJson(json);
   }
 
   Future<Task> createTask({Task task}) async {

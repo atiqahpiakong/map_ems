@@ -44,8 +44,9 @@ class UserDataService {
   }
 
   // You may not need this REST call in your app. It is only for example here.
-  Future deleteUser({String id}) async {
-    await rest.delete('user/$id');
+  Future<User> deleteUser({String id}) async {
+    final json = await rest.delete('user/$id');
+    return User.fromJson(json);
   }
 
   // You may not need this REST call in your app. It is only for example here.
