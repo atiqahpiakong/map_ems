@@ -15,11 +15,15 @@ GROUP MEMBER:
 4. SITI NABILAH BINTI NORDIN - A17CS0210
 
 GITHUB LINK:
-https://github.com/atiqahpiakong/map_ems.git
+FRONTEND - https://github.com/atiqahpiakong/map_ems.git
+BACKEND - https://github.com/atiqahpiakong/backend_ems
 
 VIDEO DEMO DELIVERABLE #2 PROTOTYPE - QATS:
 https://www.youtube.com/watch?v=jRtiNx4wCPs
 
 PROJECT DELIVERABLE #3: PROTOTYPE FOR APPLICATION FOCUS SCREENS:
 https://youtu.be/xGjBzrGVdr8
+
+GROUP PROJECT FINAL VERSION
+https://www.youtube.com/watch?v=NMEmcfbS728
 
